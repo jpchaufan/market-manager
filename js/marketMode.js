@@ -1,5 +1,9 @@
 function displayMarket(){
 	$("#mode #market").show();
+	updateMarket();
+}
+
+function updateMarket(){
 	var html = ''
 	if (data.inventory.length == 0){
 		html = "<p>No items in your market inventory!</p><p>Click on <b>Inventory Mode</b> along the top to set up your market items.</p>";
@@ -9,7 +13,6 @@ function displayMarket(){
 	}
 	$("#marketPanel").html(html);
 }
-
 function sellItem(value){
 	//check if item has already been purchased once
 	var found = false

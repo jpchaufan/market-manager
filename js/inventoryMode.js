@@ -11,13 +11,8 @@ function newItem(value, q, p){
 	document.getElementById("inventoryForm").reset();
 }
 
-
-
-
 function displayInventory(){
 	$("#mode #inventory").show();
-
-
 	updateInventoryList();
 }
 

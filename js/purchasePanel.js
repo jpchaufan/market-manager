@@ -20,15 +20,47 @@ function totalCost(){
 
 
 function updatePurchasePanel(){
-	var html = ''
-	for (var i = 0; i < data.currentPurchase.length; i++) {
-		html+='<div class="purchase" id="'+data.currentPurchase[i].name+'"><span class="quantity">'+data.currentPurchase[i].quantity+'</span>x <span class="item">'+data.currentPurchase[i].name+'</span> @ <span class="pricePerUnit">'+dollars(data.currentPurchase[i].price)+'</span> ea - <span class="totalPrice">'+dollars(data.currentPurchase[i].price*data.currentPurchase[i].quantity)+'</span></div>'
-	};
-	if (html != ''){
-		//
+	if (data.currentPurchase.length > 0){ // if purchases exist
+		var html = '';
+		for (var i = 0; i < data.currentPurchase.length; i++) {
+			html+='<div class="purchase" id="'+data.currentPurchase[i].name+'"><span class="quantity">'+data.currentPurchase[i].quantity+'</span>x <span class="item">'+data.currentPurchase[i].name+'</span> @ <span class="pricePerUnit">'+dollars(data.currentPurchase[i].price)+'</span> ea - <span class="totalPrice">'+dollars(data.currentPurchase[i].price*data.currentPurchase[i].quantity)+'</span></div>';
+		};
+		if (html != ''){
+			//
 
-		html += "<p>Total Cost: "+dollars(totalCost())+"</p>"
+			html += "<p>Total Cost: "+dollars(totalCost())+"</p>";
+		}
+		$('#purchasePanel .body').html(html);
+		displayPurchasePanel();
+	} else { // else if no purchases
+		closePurchasePanel();
 	}
-	$('#purchasePanel .body').html(html);
-	displayPurchasePanel();
 }
+
+function finalizePurchase(){
+	var conf = confirm("Confirm purchase of "+dollars(totalCost())+"?");
+	if (conf){ 
+		for (var i = 0; i < data.currentPurchase.length; i++) { // update quantities in inventory
+			var item = data.currentPurchase[i].name;
+			var amount = data.currentPurchase[i].quantity;
+			console.log('searching for '+item+" in inventory");
+			for (var k = 0; k < data.inventory.length; k++) {
+				if (item == data.inventory[k].name){
+					data.inventory[k].quantity -= amount;
+					console.log("removing "+amount+' '+item);
+				}
+			};
+		};
+		data.sales += totalCost();
+		console.log("sales: "+data.sales);
+		data.currentPurchase = [];
+		updateViews();
+	}
+
+
+}
+
+
+
+
+

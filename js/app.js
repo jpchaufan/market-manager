@@ -15,7 +15,7 @@ function setMode(mode){
 	} else if (mode == 'market') {
 		displayMarket();
 	} else if (mode == 'report'){
-
+		displayReport();
 	}
 }
 
@@ -25,8 +25,23 @@ function hideAll() {
 	$("#mode #report").hide();
 }
 
+function updateViews(){
+	updateInventoryList();
+	updateMarket();
+	updatePurchasePanel();
+}
+
+
 function dollars(n){
 	return '$'+(n/100).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+}
+
+function validNum(input){
+	if (typeof input == 'number' && input > 0){
+		return true;
+	} else {
+		return false;
+	}
 }
 
 //setMode('inventory');
