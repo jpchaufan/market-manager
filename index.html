@@ -1,0 +1,71 @@
+
+<!DOCTYPE html> 
+<html lang="en">
+    <head>
+        <title>Market Stand</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="<Effortlessly manage sales at your market stand with this nifty app!">
+        <meta name="author" content="JP Chaufan Field">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="#">
+        <link rel="stylesheet" type="text/css" href="css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="css/css.css">      
+    </head>
+    <body>
+        <nav>
+            <span id="inventoryMode" onclick="setMode('inventory')">Inventory Mode</span>
+            <span id="marketMode" onclick="setMode('market')">Market Mode</span>
+            <span id="reportMode">Report Mode</span>
+        </nav>
+        <div id="mode">
+            <div id="inventory">
+                <header> 
+                <h1>Market Manager</h1>
+                <h2>Set Up your Inventory</h2>
+                <p class="instructions">Add the item, quantity, and price for each item you will be selling today.</p> 
+            </header> 
+            <main>
+                <form id="inventoryForm"> 
+                    <input type="text" name="item" placeholder="item" id="item" /> 
+                    <input type="text" name="quantity" placeholder="quantity" id="quantity" /> 
+                    <input type="text" name="price" placeholder="price" id="price" /> 
+                    <button type="button" onclick="newItem(item.value, quantity.value, price.value)">Add Item</button>
+                </form>
+                    <table id="inventoryList"> 
+                    </table>
+                <main>
+            </div>
+            <div id="market">
+                <main>
+                    <div id="marketPanel"></div>
+                    <div id="purchasePanel">
+                        <div class="title">
+                            Current Purchase
+                        </div>
+                        <div class="body">
+                            
+                        </div>
+                        <div class="footer">
+                            <button>Finalize Sale</button>
+                        </div>                  
+                    </div>
+                </main>
+            </div>    
+        </div> <!-- end id mode -->
+        
+        
+
+
+
+       <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+       <script type="text/javascript" src="js/app.js"></script>
+       <script type="text/javascript" src="js/inventoryMode.js"></script>
+       <script type="text/javascript" src="js/marketMode.js"></script>
+       <script type="text/javascript" src="js/reportMode.js"></script>
+       <script type="text/javascript" src="js/purchasePanel.js"></script>
+    </body>
+</html>
+
+
+
+		

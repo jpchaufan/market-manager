@@ -1,0 +1,42 @@
+/**  base  **/
+
+* {
+	text-align: center;
+}
+nav {
+	text-align: right;
+}
+nav span {
+	padding: .1em 2em;
+	color: blue;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+/**  inventory mode  **/
+
+table {
+	margin: 2em auto;
+}
+th, td {
+	padding: .1em 2em;
+}
+
+/**  market mode  **/
+
+#marketPanel {
+	width: 90%;
+	max-width: 500px;
+	margin: 2em auto;
+}
+
+#marketPanel button {
+	padding: .5em;
+	margin: .5em; 
+}
+#purchasePanel {
+	display: none;
+}
+
+
+/**  report mode  **/
