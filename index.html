@@ -2,7 +2,7 @@
 <!DOCTYPE html> 
 <html lang="en">
     <head>
-        <title>Market Stand</title>
+        <title>Market Stand | Manage your market sales effectively with this app!</title>
         <meta charset="UTF-8">
         <meta name="description" content="<Effortlessly manage sales at your market stand with this nifty app!">
         <meta name="author" content="JP Chaufan Field">
@@ -11,25 +11,26 @@
         <link rel="stylesheet" type="text/css" href="css/normalize.css">
         <link rel="stylesheet" type="text/css" href="css/css.css">      
     </head>
-    <body>
+    <header><h1>Market Manager</h1>
         <nav>
             <span id="inventoryMode" onclick="setMode('inventory')">Inventory Mode</span>
             <span id="marketMode" onclick="setMode('market')">Market Mode</span>
             <span id="reportMode" onclick="setMode('report')">Report Mode</span>
         </nav>
+    </header>
+    <body>
+        
         <div id="mode">
             <div id="inventory">
-                <header> 
-                <h1>Market Manager</h1>
                 <h2>Set Up your Inventory</h2>
                 <p class="instructions">Add the item, quantity, and price for each item you will be selling today.</p> 
-            </header> 
             <main>
-                <form id="inventoryForm"> 
+                <form id="inventoryForm" autocomplete="off"> 
                     <input type="text" name="item" placeholder="item" id="item" /> 
                     <input type="text" name="quantity" placeholder="quantity" id="quantity" /> 
                     <input type="text" name="price" placeholder="price" id="price" /> 
                     <button type="button" onclick="newItem(item.value, quantity.value, price.value)">Add Item</button>
+                    <button type="button" onclick="deleteInventory()">Delete ALL Items</button>
                 </form>
                     <table id="inventoryList"> 
                     </table>
@@ -37,10 +38,11 @@
             </div>
             <div id="market">
                 <main>
+                    <h2>Click to Purchase</h2>
                     <div id="marketPanel"></div>
-                    <div id="purchasePanel">
+                    <div class="purchasePanel">
                         <div class="title">
-                            <b>Current Purchase</b>
+                            <b>Current Purchase</b>  <span onclick="cancelPurchase()" class="cancelPurchase">Cancel</span>
                         </div>
                         <div class="body">
                             
@@ -52,6 +54,8 @@
                 </main>
             </div>    
             <div id="report">
+                <h2>Market Report</h2>
+                <ul></ul>
             </div>
         </div> <!-- end id mode -->
         

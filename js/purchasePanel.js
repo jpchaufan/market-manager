@@ -1,13 +1,13 @@
 function displayPurchasePanel(){
 	if (data.currentPurchase.length > 0){
-		$('#purchasePanel').show();
+		$('.purchasePanel').css("display","inline-block");
 	} else {
 		data.closePurchasePanel();
 	}
 }
 
 function closePurchasePanel(){
-	$('#purchasePanel').hide();
+	$('.purchasePanel').hide();
 }
 
 function totalCost(){
@@ -30,7 +30,7 @@ function updatePurchasePanel(){
 
 			html += "<p>Total Cost: "+dollars(totalCost())+"</p>";
 		}
-		$('#purchasePanel .body').html(html);
+		$('.purchasePanel .body').html(html);
 		displayPurchasePanel();
 	} else { // else if no purchases
 		closePurchasePanel();
@@ -43,21 +43,25 @@ function finalizePurchase(){
 		for (var i = 0; i < data.currentPurchase.length; i++) { // update quantities in inventory
 			var item = data.currentPurchase[i].name;
 			var amount = data.currentPurchase[i].quantity;
-			console.log('searching for '+item+" in inventory");
 			for (var k = 0; k < data.inventory.length; k++) {
 				if (item == data.inventory[k].name){
 					data.inventory[k].quantity -= amount;
-					console.log("removing "+amount+' '+item);
+					data.itemsSold += amount;
 				}
 			};
 		};
 		data.sales += totalCost();
-		console.log("sales: "+data.sales);
 		data.currentPurchase = [];
-		updateViews();
+		updatePurchasePanel();
+		updateMarket();
 	}
+}
 
-
+function cancelPurchase(){
+	if ( confirm("Cancel this purchase?") ){
+		data.currentPurchase = [];
+		updatePurchasePanel();
+	}
 }
 
 

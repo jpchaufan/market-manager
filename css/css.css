@@ -2,8 +2,22 @@
 
 * {
 	text-align: center;
+	color: #3f3f3f;
+}
+header {
+	background-color: #acacac;
+	text-align: left;
+}
+h1 {
+	color: #2a2a2a;
+	display: inline-block;
+	font-size: 1.2em;
+	margin-top: .4em;
+	margin-left: 10%;
 }
 nav {
+	padding-top: .6em;
+	float: right;
 	text-align: right;
 }
 nav span {
@@ -15,28 +29,72 @@ nav span {
 
 /**  inventory mode  **/
 
-table {
+#inventory table {
 	margin: 2em auto;
 }
-th, td {
+#inventory tr {
+	border-bottom: 1px solid #bcbcbc;
+}
+#inventory th, #inventory td[class*='display_'] {
 	padding: .1em 2em;
+
 }
 
-/**  market mode  **/
-
-#marketPanel {
-	width: 90%;
-	max-width: 500px;
-	margin: 2em auto;
+.editLi, .updateLi, .deleteLi {
+	text-decoration: underline;
+	cursor: pointer;
+}
+.editLi, .updateLi {
+	color: blue;
+}
+.deleteLi {
+	color: red;
 }
 
-#marketPanel button {
-	padding: .5em;
-	margin: .5em; 
-}
-#purchasePanel {
+[class*='edit_'] {
 	display: none;
 }
 
+/**  market mode  **/
+#mode #market {
+	display: none;
+}
+#marketPanel {
+	width: 90%;
+	max-width: 700px;
+	margin: 2em auto;
+}
+
+#marketPanel .purchaseBtn {
+	padding: .5em;
+	margin: .5em; 
+}
+#marketPanel .purchaseBtn .name {
+	font-weight: bold;
+}
+.purchasePanel {
+	background-color: #f9f9f9;
+	display: none;
+	border: 1px solid #2a2a2a;
+	padding: 1em;
+}
+.purchasePanel .purchase {
+	text-align: right;
+}
+.purchasePanel .cancelPurchase {
+	float: right;
+	color: red;
+	cursor: pointer;
+}
 
 /**  report mode  **/
+
+#mode #report {
+	display: none;
+}
+#report ul {
+	list-style-type: none;
+}
+#report ul li {
+	padding: .1em;
+}

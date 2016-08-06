@@ -1,0 +1,40 @@
+to add:
+
+  purchase panel
+    -1 of an item
+    remove item
+    cancel purchase
+
+  report mode - level of detail button
+    items sold
+      percent of inventory items sold
+    cash made from each item
+      as number
+      as percent
+
+  options mode
+    change header to the name of your business
+    confirm to delete item
+    confirm to finalize purchase
+    confirm to cancel purchase
+    changeable decoration styles
+
+  custom confirm box as overlay
+
+  reportings lists and sublists
+
+  responsive design
+
+  saving options
+
+  multiple active purchases, with purchase id's
+
+  add jquery ui for draggable windows
+    draggable purchase window
+    re-arrange items in inv list
+
+  save stats of past markets
+
+  transform to downloadable app
+
+

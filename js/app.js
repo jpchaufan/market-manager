@@ -1,10 +1,18 @@
 data = {
+	invId: 0,
 	inventory: [],
 	currentPurchase: [],
-	sales: 0
+	sales: 0,
+	itemsSold: 0
 }
 
-
+function nameFromId(id){
+	for (var i = 0; i < data.inventory.length; i++) {
+		if( data.inventory[i].id == id ){
+			return data.inventory[i].name;
+		}
+	};
+}
 
 var marketModeHTML = '';
 
@@ -37,15 +45,28 @@ function dollars(n){
 }
 
 function validNum(input){
-	if (typeof input == 'number' && input > 0){
+	if (typeof parseInt(input) == 'number' && input > 0){
 		return true;
 	} else {
 		return false;
 	}
 }
 
+function validInt(input){
+	if ( (Math.round(input) == input) && validNum(input) ){
+		return true;
+	}
+	return false;
+}
+
+function validItem(input){
+	if ( (/^[a-z0-9\-\,\.\#\$\@ ]+$/i).test(input) ){
+		return true;
+	}
+	return false;
+}
+
 //setMode('inventory');
 
-$('html').click(console.log(data));
 
 

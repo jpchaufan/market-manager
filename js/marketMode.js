@@ -9,7 +9,8 @@ function updateMarket(){
 		html = "<p>No items in your market inventory!</p><p>Click on <b>Inventory Mode</b> along the top to set up your market items.</p>";
 	}
 	for (var i = 0; i < data.inventory.length; i++) {
-		html += '<button onclick="sellItem(\''+data.inventory[i].name+'\')" id="'+data.inventory[i].name+'"><div class="name">'+data.inventory[i].name+'</div><div class="quantity">'+data.inventory[i].quantity+'/'+data.inventory[i].initialQuantity+'</div><div class="price">'+dollars(data.inventory[i].price)+'</div></button>';
+		html += '<button class="purchaseBtn" onclick="sellItem(\''+data.inventory[i].name+'\')" id="'+data.inventory[i].name+'">';
+		html += '<div class="name">'+data.inventory[i].name+'</div><div class="quantity">'+data.inventory[i].quantity+'/'+data.inventory[i].initialQuantity+'</div><div class="price">'+dollars(data.inventory[i].price)+'</div></button>';
 	}
 	$("#marketPanel").html(html);
 }
@@ -42,5 +43,4 @@ function sellItem(value){
 	}	
 	displayMarket();
 	updatePurchasePanel();
-	console.log(data.currentPurchase);
 }
