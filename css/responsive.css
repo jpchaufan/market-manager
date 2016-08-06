@@ -6,11 +6,12 @@
 	display: none;
 	position: absolute;
 	background-color: #acacac;
+	margin-top: .7em; 
 }
-/*#menu span {
-	padding: 1em;
+#menu span {
+	padding: .5em .7em;
 	display: inline-block;
-}*/
+}
 
 
 @media (max-width: 767px) {
@@ -37,6 +38,9 @@
 	}
 }
 @media (max-width: 290px){
+	h1 {
+		margin-left: 5px;
+	}
 	#inventory th, #inventory td[class*='display_'] {
 		padding: .1em .5em;
 	}#inventory table input {

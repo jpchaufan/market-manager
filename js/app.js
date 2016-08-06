@@ -1,4 +1,5 @@
 data = {
+	version: 1.0,
 	invId: 0,
 	purchaseId: 0,
 	inventory: [],
