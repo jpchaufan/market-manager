@@ -1,0 +1,45 @@
+.nav-sm {
+	display: none;
+}
+
+#menu {
+	display: none;
+	position: absolute;
+	background-color: #acacac;
+}
+/*#menu span {
+	padding: 1em;
+	display: inline-block;
+}*/
+
+
+@media (max-width: 767px) {
+	.nav-sm {
+		display: block;
+	}
+	.nav-lg {
+		display: none;
+	}
+}
+
+@media (max-width: 600px) {
+	#inventoryForm input {
+		display: block;
+		width: 90%;
+		margin: 0 auto;
+		margin: .25em;
+	}
+	#inventory th, #inventory td[class*='display_'] {
+		padding: .1em 1em;
+	}
+	#inventory table input {
+		width: 100px;
+	}
+}
+@media (max-width: 290px){
+	#inventory th, #inventory td[class*='display_'] {
+		padding: .1em .5em;
+	}#inventory table input {
+		width: 50px;
+	}
+}	

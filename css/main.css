@@ -4,6 +4,9 @@
 	text-align: center;
 	color: #3f3f3f;
 }
+body, input {
+	background-color: #fafafa;
+}
 header {
 	background-color: #acacac;
 	text-align: left;
@@ -26,18 +29,30 @@ nav span {
 	text-decoration: underline;
 	cursor: pointer;
 }
+button {
+	border: 1px solid #9a9a9a;
+	background-color: #efefef;
+}
+#mode {
+	width: 90%;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
 
 /**  inventory mode  **/
 
 #inventory table {
-	margin: 2em auto;
+	margin: 1em auto;
+}
+#inventoryList {
+	width: 100%;
 }
 #inventory tr {
 	border-bottom: 1px solid #bcbcbc;
 }
 #inventory th, #inventory td[class*='display_'] {
 	padding: .1em 2em;
-
 }
 
 .editLi, .updateLi, .deleteLi {
@@ -53,6 +68,10 @@ nav span {
 
 [class*='edit_'] {
 	display: none;
+}
+
+.inventoryBtns {
+	padding: 1em;
 }
 
 /**  market mode  **/
@@ -86,15 +105,69 @@ nav span {
 	color: red;
 	cursor: pointer;
 }
+.purchasePanel .purchase:hover {
+	cursor: pointer;
+	color: red;
+}
+.purchasePanel .purchase span {
+	color: inherit;
+}
 
 /**  report mode  **/
 
 #mode #report {
 	display: none;
 }
+.reportList {
+	display: inline-block;
+	margin: 0 auto;
+}
 #report ul {
 	list-style-type: none;
+}
+#report li{
+	text-align: left;
 }
 #report ul li {
 	padding: .1em;
 }
+
+/**  options mode  **/
+
+#mode #options {
+	display: none;
+}
+#options fieldset {
+	border: none;
+}
+
+/**  overlay **/
+
+.overlay {
+	display: none;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(255,255,255,.6);
+}
+.overlay .confirm, .overlay .alert  {
+	background-color: #ddd;
+	display: inline-block;
+	margin-top: 15%;
+	padding: 1em 2em 2em;
+	border: 2px solid #666;
+	border-radius: 1em;
+	-webkit-border-radius: 1em;
+	-moz-border-radius: 1em;
+	-o-border-radius: 1em;
+}
+.overlay .confirm button, .overlay .alert button {
+	margin: 0 .3em;
+}
+
+
+
+

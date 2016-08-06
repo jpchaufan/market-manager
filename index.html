@@ -9,13 +9,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="#">
         <link rel="stylesheet" type="text/css" href="css/normalize.css">
-        <link rel="stylesheet" type="text/css" href="css/css.css">      
+        <link rel="stylesheet" type="text/css" href="css/main.css">      
+        <link rel="stylesheet" type="text/css" href="css/responsive.css">      
     </head>
     <header><h1>Market Manager</h1>
         <nav>
-            <span id="inventoryMode" onclick="setMode('inventory')">Inventory Mode</span>
-            <span id="marketMode" onclick="setMode('market')">Market Mode</span>
-            <span id="reportMode" onclick="setMode('report')">Report Mode</span>
+            <div class="nav-lg">
+                <span id="inventoryMode" onclick="setMode('inventory')">Inventory</span>
+                <span id="marketMode" onclick="setMode('market')">Market</span>
+                <span id="reportMode" onclick="setMode('report')">Report</span>
+                <span id="optionsMode" onclick="setMode('options')">Options</span>
+            </div>
+            <div class="nav-sm">
+                <span id="menuBtn" onclick="menu()">Menu</span>
+            </div>
+            <div id="menu">
+                <span id="inventoryMode" onclick="setMode('inventory')">Inventory</span>
+                <span id="marketMode" onclick="setMode('market')">Market</span>
+                <span id="reportMode" onclick="setMode('report')">Report</span>
+                <span id="optionsMode" onclick="setMode('options')">Options</span>
+            </div>
         </nav>
     </header>
     <body>
@@ -23,14 +36,18 @@
         <div id="mode">
             <div id="inventory">
                 <h2>Set Up your Inventory</h2>
-                <p class="instructions">Add the item, quantity, and price for each item you will be selling today.</p> 
+                <p id="instructions">Add the item, quantity, and price for each item you will be selling today.</p> 
             <main>
-                <form id="inventoryForm" autocomplete="off"> 
+                <form id="inventoryForm" autocomplete="off" onsubmit="return false"> 
                     <input type="text" name="item" placeholder="item" id="item" /> 
                     <input type="text" name="quantity" placeholder="quantity" id="quantity" /> 
                     <input type="text" name="price" placeholder="price" id="price" /> 
-                    <button type="button" onclick="newItem(item.value, quantity.value, price.value)">Add Item</button>
-                    <button type="button" onclick="deleteInventory()">Delete ALL Items</button>
+
+                    <div class="inventoryBtns">
+                        <button type="button" onclick="newItem(item.value, quantity.value, price.value)">Add Item</button>
+                        <button type="button" onclick="deleteInventory()">Delete ALL Items</button>
+                    </div>
+                    
                 </form>
                     <table id="inventoryList"> 
                     </table>
@@ -55,9 +72,39 @@
             </div>    
             <div id="report">
                 <h2>Market Report</h2>
-                <ul></ul>
+                <div class="reportList"></div>
+                
+            </div>
+            <div id="options">
+                <h2>Options</h2>
+                <main>
+                    <form onsubmit="return false">
+                        <fieldset>
+                            <label for="displayName">Display name: </label> <input id="displayNameOption" name="displayName" type="text">
+                        </fieldset>
+                        
+                        <fieldset>
+                            <label for="confirmPurchases">Confirm Finalizing Purchases?</label> <input id="confirmPurchasesOption" type="checkbox" name="confirmPurchases" /> <br/>
+                            <label for="confirmDeleteItem">Confirm Deleting Item?</label> <input id="confirmDeleteItemOption" type="checkbox" name="confirmDeleteItem" /> <br/>
+                            <label for="confirmCancelPurchase">Confirm Canceling Purchase?</label> <input id="confirmCancelPurchaseOption" type="checkbox" name="confirmCancelPurchase" /> 
+                        </fieldset>
+                        <fieldset>
+                            <label for="currencySymbol">Currency Symbol: </label> <input id="currencySymbolOption" name="currencySymbol" type="text">
+                        </fieldset>
+                    </form>
+                </main>
             </div>
         </div> <!-- end id mode -->
+
+
+        <div class="overlay">
+            <div class="confirm">
+                <p>Are you sure?</p><button id="confirmYes">Yes</button><button id="confirmNo">No</button>
+            </div>
+            <div class="alert">
+                <p>Alert!</p><button id="alertOk" onclick="alertOk()">Ok</button>
+            </div>
+        </div>
         
         
 
@@ -69,6 +116,7 @@
        <script type="text/javascript" src="js/marketMode.js"></script>
        <script type="text/javascript" src="js/reportMode.js"></script>
        <script type="text/javascript" src="js/purchasePanel.js"></script>
+       <script type="text/javascript" src="js/options.js"></script>
     </body>
 </html>
 

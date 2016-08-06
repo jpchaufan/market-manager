@@ -1,29 +1,33 @@
 to add:
+  inventory list edit ✓
+    edit item quantity and initialQuantity using regex ✓
 
   purchase panel
-    -1 of an item
-    remove item
-    cancel purchase
+    click an item to -1 ✓
 
-  report mode - level of detail button
+  report mode
     items sold
-      percent of inventory items sold
-    cash made from each item
-      as number
-      as percent
+      percent of inventory items sold ✓
+    details for each item
+        amount sold ✓
+        cash made ✓
+
+  custom confirm box as overlay ✓
+
+  add footer
 
   options mode
-    change header to the name of your business
-    confirm to delete item
-    confirm to finalize purchase
-    confirm to cancel purchase
+    change header to the name of your business ✓
+    confirm to delete item ✓
+    confirm to finalize purchase ✓
+    confirm to cancel purchase ✓
+    set currency symbol ✓
+    purchase panel location
     changeable decoration styles
 
-  custom confirm box as overlay
+  reportings lists and sublists ✓
 
-  reportings lists and sublists
-
-  responsive design
+  responsive design ✓
 
   saving options
 
