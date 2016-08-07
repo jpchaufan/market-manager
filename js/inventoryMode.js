@@ -123,6 +123,13 @@ function deleteLi(itemId){
 	
 }
 
+$('#inventoryForm input').on('keydown',function(e){
+	if (e.keyCode == 13){
+		newItem(item.value, quantity.value, price.value);
+	}
+
+});
+
 //test prep
 
 newItem('carrots', 12, 3);
