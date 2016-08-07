@@ -91,6 +91,14 @@
                         <fieldset>
                             <label for="currencySymbol">Currency Symbol: </label> <input id="currencySymbolOption" name="currencySymbol" type="text">
                         </fieldset>
+                        <fieldset>
+                            <label for="autoSave">Automatically Save Every Click?</label> <input id="autoSaveOption" type="checkbox" name="autoSave" /> 
+                        </fieldset>
+                        <fieldset>
+                            <button type="button" onclick='saveToLS()'>Save</button>
+                            <button type="button" onclick='loadFromLS()'>Load</button>
+                            <button type="button" onclick='resetApp()'>Reset</button>
+                        </fieldset>
                     </form>
                 </main>
             </div>
@@ -117,6 +125,11 @@
        <script type="text/javascript" src="js/reportMode.js"></script>
        <script type="text/javascript" src="js/purchasePanel.js"></script>
        <script type="text/javascript" src="js/options.js"></script>
+       <script type="text/javascript">
+       if (localStorage.getItem('data')){
+        loadFromLS();
+       }
+       </script>
     </body>
 </html>
 

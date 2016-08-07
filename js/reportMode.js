@@ -1,7 +1,10 @@
+var reportings;
 function updateReportings(){
-	data.reportings = [{
-		title: "Net Sales",
-		value: dollars(data.sales)+' / '+dollars(totalInvVal())+ " ("+Math.round(data.sales/totalInvVal()*100)+"%)"
+	reportings = [
+		{
+			list: false,
+			title: "Net Sales",
+			value: dollars(data.sales)+' / '+dollars(totalInvVal())+ " ("+Math.round(data.sales/totalInvVal()*100)+"%)"
 		},
 		{
 			list: false,
@@ -29,11 +32,11 @@ function updateReportings(){
 			value: dollars(data.largestSale)
 		},
 		{
-			list: true,
-			runFunc: "perItemDetails"
+			list: true
 		}
 	];	
 }
+updateReportings();
 
 function avgSaleAmount(){
 	if (data.numOfSales == 0){
@@ -64,24 +67,28 @@ function displayReport(){
 }
 
 function updateReport(){
+	if (data.inventory.length == 0){
+		console.log('inv length == 0, not updating reports');
+		return;
+	}
 	updateReportings();
 	var report = '<ul>';
-	for (var i = 0; i < data.reportings.length; i++) {
-		if (!data.reportings[i].list){
-			report += "<li>"+data.reportings[i].title+": "+data.reportings[i].value+"</li>"	
+	for (var i = 0; i < reportings.length; i++) {
+		if (reportings[i].list === false){
+			report += "<li>"+reportings[i].title+": "+reportings[i].value+"</li>"	
 		} else {
 			//report += "<div class='reportSublist'>";
-			for (var i = 0; i < data.inventory.length; i++) {
-				report += "<li><b>"+data.inventory[i].name+"</b></li><ul>";
-				var sold = data.inventory[i].initialQuantity-data.inventory[i].quantity;
-				var total = data.inventory[i].initialQuantity;
-				report += "<li>Total Sold: "+sold+"/"+total+" ("+Math.round(sold/total*100)+"% of total "+data.inventory[i].name+")</li>";
+			for (var k = 0; k < data.inventory.length; k++) {
+				report += "<li><b>"+data.inventory[k].name+"</b></li><ul>";
+				var sold = data.inventory[k].initialQuantity-data.inventory[k].quantity;
+				var total = data.inventory[k].initialQuantity;
+				report += "<li>Total Sold: "+sold+"/"+total+" ("+Math.round(sold/total*100)+"% of total "+data.inventory[k].name+")</li>";
 				if (data.sales == 0) {
 					var zeroGuard = 0;
 				} else {
-					var zeroGuard = Math.round(data.inventory[i].profit/data.sales*100);
+					var zeroGuard = Math.round(data.inventory[k].profit/data.sales*100);
 				}
-				report += "<li>Money from "+data.inventory[i].name+": "+dollars(data.inventory[i].profit)+" ("+zeroGuard+"% of Net Sales)</li>";
+				report += "<li>Money from "+data.inventory[k].name+": "+dollars(data.inventory[k].profit)+" ("+zeroGuard+"% of Net Sales)</li>";
 
 				report += "</ul>"
 			};

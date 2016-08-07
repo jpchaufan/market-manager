@@ -29,7 +29,7 @@ to add:
 
   responsive design ✓
 
-  saving options
+  saving options ✓
 
   multiple active purchases, with purchase id's
 

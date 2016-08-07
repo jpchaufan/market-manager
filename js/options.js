@@ -6,27 +6,49 @@ function displayOptions(){
 	$('#displayNameOption').change(function(){
 		displayNameChange( $('#displayNameOption').attr('value') );
 	});
-	displayNameChange(data.options.displayName);
+	
 //
 	$('#confirmPurchasesOption').change(function(){
 		confirmPurchaseChange($('#confirmPurchasesOption').is(":checked"));
 	});
-	confirmPurchaseChange($('#confirmPurchasesOption').prop("checked", data.options.confirmPurchases));
+	
 //
 	$('#confirmDeleteItemOption').change(function(){
 		confirmDeleteItem($('#confirmDeleteItemOption').is(":checked"));
 	});
-	confirmDeleteItem($('#confirmDeleteItemOption').prop("checked", data.options.confirmDeleteItem));
+	
 
 	$('#confirmCancelPurchaseOption').change(function(){
 		confirmCancelPurchase($('#confirmCancelPurchaseOption').is(":checked"));
 	});
-	confirmCancelPurchase($('#confirmCancelPurchaseOption').prop("checked", data.options.confirmCancelPurchase));
+	
 
 	$('#currencySymbolOption').change(function(){
 		currencySymbolChange( $('#currencySymbolOption').attr('value') );
 	});
-	currencySymbolChange(data.options.currencySymbol);
+
+	$('#autoSaveOption').change(function(){
+		autoSaveChange($('#autoSaveOption').is(":checked"));
+	});
+	
+
+	function setOptionsFromData(){
+		displayNameChange(data.options.displayName);
+
+		$('#displayNameOption').attr('value', data.options.displayName);
+		confirmPurchaseChange(data.options.confirmPurchases);
+		$('#confirmPurchasesOption').prop('checked', data.options.confirmPurchases);
+		confirmDeleteItem(data.options.confirmDeleteItem);
+		$('#confirmDeleteItemOption').prop('checked', data.options.confirmDeleteItem);
+		confirmCancelPurchase(data.options.confirmCancelPurchase);
+		$('#confirmCancelPurchaseOption').prop('checked', data.options.confirmCancelPurchase);
+		currencySymbolChange(data.options.currencySymbol);
+		$('#confirmSymbolChangeOption').attr('value', data.options.confirmSymbolChange);
+		autoSaveChange(data.options.autoSave);
+		$('#autoSaveOption').prop('checked', data.options.autoSave);
+		
+	}
+	setOptionsFromData();
 // end initialize options
 
 
@@ -73,3 +95,22 @@ function currencySymbolChange(value){
 		$('#currencySymbolOption').attr('value', value);
 	}
 }
+function autoSaveChange(value){	
+	if (value){
+		data.options.autoSave = true;
+	} else {
+		data.options.autoSave = false;	
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+

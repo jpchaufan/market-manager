@@ -1,23 +1,29 @@
-data = {
-	version: 1.0,
-	invId: 0,
-	purchaseId: 0,
-	inventory: [],
-	currentPurchase: [],
-	purchaseHtml: '',
-	sales: 0,
-	itemsSold: 0,
-	numOfSales: 0,
-	smallestSale: 0,
-	largestSale: 0
+initializeData();
+function initializeData(){
+	data = {
+		version: 1.0,
+		invId: 0,
+		purchaseId: 0,
+		inventory: [],
+		currentPurchase: [],
+		purchaseHtml: '',
+		sales: 0,
+		itemsSold: 0,
+		numOfSales: 0,
+		smallestSale: 0,
+		largestSale: 0
+	}
+	data.options = {
+		displayName: "",
+		confirmPurchases: true,
+		confirmDeleteItem: true,
+		confirmCancelPurchase: true,
+		currencySymbol: "$",
+		autoSaveVar: null,
+		autoSave: false
+	}
 }
-data.options = {
-	displayName: "",
-	confirmPurchases: true,
-	confirmDeleteItem: true,
-	confirmCancelPurchase: true,
-	currencySymbol: "$"
-}
+
 
 function nameFromId(id){
 	for (var i = 0; i < data.inventory.length; i++) {
@@ -47,6 +53,7 @@ function hideAll() {
 	$("#mode #market").hide();
 	$("#mode #report").hide();
 	$("#mode #options").hide();
+	$("#menu").hide();
 }
 
 function updateViews(){
@@ -134,7 +141,42 @@ window.addEventListener('resize', function(){
 		$('.spacer').html('|');
 	}
 }, true);
-//setMode('inventory');
+
+
+function saveToLS(){
+	var saveData = JSON.stringify(data);
+	localStorage.setItem('data', saveData);
+	console.log('saving');
+}
+
+function loadFromLS(){
+	data = JSON.parse(localStorage.getItem('data'));
+	setOptionsFromData();
+	setMode('inventory');
+	console.log('loading');
+}
+
+function autoSaveOn(){	
+	$(document).click(function(){
+		setTimeout(function(){
+			if (data.options.autoSave){
+				saveToLS();	
+			}
+		}, 150)
+	});
+}
+
+function resetApp(){
+	callback = function(){
+		initializeData();
+		defaultInventory();
+		setMode('inventory');
+		setOptionsFromData();	
+	}
+	cConfirm('Really reset everything?', callback);
+}
+
+autoSaveOn();
 
 
 
