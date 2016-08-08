@@ -115,8 +115,10 @@ function autoSaveChange(value){
 function themeChange(value){
 	data.options.theme = value;
 	if (data.options.theme == 'standard'){
-		$("body").css('color', '#3f3f3f');
-		$("body").css('background-color', '#fafafa');
+		var changed = ['body', 'header', '#menu', 'h1', 'nav span', '#mode'];
+		for (var i = 0; i < changed.length; i++) {
+			$(changed[i]).removeAttr('style');
+		};
 	} else if (data.options.theme == 'forest'){
 		$("body").css('color', '#3f3f3f');
 		$("body").css('color', '#3f3f3f');
