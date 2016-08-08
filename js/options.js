@@ -114,13 +114,13 @@ function autoSaveChange(value){
 }
 function themeChange(value){
 	data.options.theme = value;
-	if (data.options.theme == 'standard'){
-		var changed = ['body', 'header', '#menu', 'h1', 'nav span', '#mode'];
-		for (var i = 0; i < changed.length; i++) {
-			$(changed[i]).removeAttr('style');
-		};
-	} else if (data.options.theme == 'forest'){
-		$("body").css('color', '#3f3f3f');
+
+	//reset theme
+	var changed = ['body', 'header', '#menu', 'h1', 'nav span', '#mode'];
+	for (var i = 0; i < changed.length; i++) {
+		$(changed[i]).removeAttr('style');
+	};
+	if (data.options.theme == 'forest'){
 		$("body").css('color', '#3f3f3f');
 		$('header, #menu').css('background-color', '#61380B');
 		$('header').css('color', '#61380B');
@@ -141,7 +141,13 @@ function themeChange(value){
 		$('#mode').css('-moz-border-radius', '12px');
 		$('#mode').css('-o-border-radius', '12px');
 
-	}
+	} else if (data.options.theme == 'clouds'){
+		$("body").css('background-image', 'url("imgs/bg-clouds.jpg")');
+		$("body").css('background-size', '100% 100%');
+	} else if (data.options.theme == 'chloe'){
+		$("body").css('background-image', 'url("imgs/bg-chloe.jpg")');
+		$("body").css('background-size', '100% 100%');
+	} 
 }
 function btnImgChange(value){	
 	console.log(value);
