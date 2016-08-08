@@ -54,8 +54,9 @@ function displayOptions(){
 		$('#autoSaveOption').prop('checked', data.options.autoSave);
 		themeChange(data.options.theme);
 		$('#themeOption').val(data.options.theme);
-		autoSaveChange(data.options.btnImgs);
-		$('#btnImgsOption').prop('checked', data.options.btnImgs);
+		btnImgChange(data.options.btnImgs);
+		$('#btnImgOption').prop('checked', data.options.btnImg);
+
 	}
 	setOptionsFromData();
 // end initialize options
@@ -118,7 +119,26 @@ function themeChange(value){
 		$("body").css('background-color', '#fafafa');
 	} else if (data.options.theme == 'forest'){
 		$("body").css('color', '#3f3f3f');
+		$("body").css('color', '#3f3f3f');
+		$('header, #menu').css('background-color', '#61380B');
+		$('header').css('color', '#61380B');
+		$('h1').css('text-shadow', '2px 2px 2px rgba(255, 255, 255, .7)');
+		$('h1').css('-webkit-text-shadow', '2px 2px 2px rgba(255, 255, 255, .7)');
+		$('h1').css('-moz-text-shadow', '2px 2px 2px rgba(255, 255, 255, .7)');
+		$('h1').css('-o-text-shadow', '2px 2px 2px rgba(255, 255, 255, .7)');
+		$('nav span').css('text-decoration', 'none');
+		$('nav span').css('color', '#a2a2a2');
 		$("body").css('background-color', '#21610B');
+		$('#mode').css('background-color', 'rgba(255, 255, 255, .3)');
+		$('#mode').css('box-shadow', '0 0 8px 8px rgba(255, 255, 255, .3)');
+		$('#mode').css('-webkit-box-shadow', '0 0 8px 8px rgba(255, 255, 255, .3)');
+		$('#mode').css('-moz-box-shadow', '0 0 8px 8px rgba(255, 255, 255, .3)');
+		$('#mode').css('-o-box-shadow', '0 0 8px 8px rgba(255, 255, 255, .3)');
+		$('#mode').css('border-radius', '12px');
+		$('#mode').css('-webkit-border-radius', '12px');
+		$('#mode').css('-moz-border-radius', '12px');
+		$('#mode').css('-o-border-radius', '12px');
+
 	}
 }
 function btnImgChange(value){	

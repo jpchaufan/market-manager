@@ -56,7 +56,7 @@ function totalItemCount(){
 function totalInvVal(){
 	total = 0;
 	for (var i = 0; i < data.inventory.length; i++) {
-		total += data.inventory[i].quantity*data.inventory[i].price;
+		total += data.inventory[i].initialQuantity*data.inventory[i].price;
 	};
 	return total;
 }

@@ -60,7 +60,7 @@ function sellItem(itemId){
 
 var buttonImgs = [
 	{
-		name: 'carrots',
+		name: 'carrot',
 		img: 'carrot.jpg',
 		fontColor: 'white'
 	},
@@ -75,7 +75,7 @@ var buttonImgs = [
 		fontColor: 'white'
 	},
 	{
-		name: 'flowers',
+		name: 'flower',
 		img: 'flowers.jpg',
 		fontColor: 'black'
 	},
