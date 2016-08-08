@@ -20,7 +20,9 @@ function initializeData(){
 		confirmCancelPurchase: true,
 		currencySymbol: "$",
 		autoSaveVar: null,
-		autoSave: false
+		autoSave: false,
+		theme: 'standard',
+		btnImg: false
 	}
 }
 
@@ -132,7 +134,7 @@ function alertOk(){
 
 
 function menu(){
-	$('#menu').slideToggle();
+	$('#menu').toggle();
 }
 window.addEventListener('resize', function(){
 	if (window.innerWidth < 500) {
@@ -152,7 +154,7 @@ function saveToLS(){
 function loadFromLS(){
 	data = JSON.parse(localStorage.getItem('data'));
 	setOptionsFromData();
-	setMode('inventory');
+	updateViews();
 	console.log('loading');
 }
 
@@ -170,7 +172,7 @@ function resetApp(){
 	callback = function(){
 		initializeData();
 		defaultInventory();
-		setMode('inventory');
+		setMode('options');
 		setOptionsFromData();	
 	}
 	cConfirm('Really reset everything?', callback);

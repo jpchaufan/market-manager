@@ -31,10 +31,16 @@ function displayOptions(){
 		autoSaveChange($('#autoSaveOption').is(":checked"));
 	});
 	
+	$('#themeOption').change(function(){
+		themeChange($('#themeOption').val());
+	});
+
+	$('#btnImgOption').change(function(){
+		btnImgChange($('#btnImgOption').is(":checked"));
+	});
 
 	function setOptionsFromData(){
 		displayNameChange(data.options.displayName);
-
 		$('#displayNameOption').attr('value', data.options.displayName);
 		confirmPurchaseChange(data.options.confirmPurchases);
 		$('#confirmPurchasesOption').prop('checked', data.options.confirmPurchases);
@@ -46,7 +52,10 @@ function displayOptions(){
 		$('#confirmSymbolChangeOption').attr('value', data.options.confirmSymbolChange);
 		autoSaveChange(data.options.autoSave);
 		$('#autoSaveOption').prop('checked', data.options.autoSave);
-		
+		themeChange(data.options.theme);
+		$('#themeOption').val(data.options.theme);
+		autoSaveChange(data.options.btnImgs);
+		$('#btnImgsOption').prop('checked', data.options.btnImgs);
 	}
 	setOptionsFromData();
 // end initialize options
@@ -102,11 +111,36 @@ function autoSaveChange(value){
 		data.options.autoSave = false;	
 	}
 }
+function themeChange(value){
+	data.options.theme = value;
+	if (data.options.theme == 'standard'){
+		$("body").css('color', '#3f3f3f');
+		$("body").css('background-color', '#fafafa');
+	} else if (data.options.theme == 'forest'){
+		$("body").css('color', '#3f3f3f');
+		$("body").css('background-color', '#21610B');
+	}
+}
+function btnImgChange(value){	
+	console.log(value);
+	if (value){
+		data.options.btnImg = true;
+	} else {
+		data.options.btnImg = false;
+	}
+}
 
 
 
 
 
+//btn img select populate
+var option = '';
+for (var i = 0; i < buttonImgs.length; i++) {
+	option += "<option>"+buttonImgs[i].name+"</option>";
+	
+};
+$('#btnImgSelect').html(option);
 
 
 

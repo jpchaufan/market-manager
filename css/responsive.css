@@ -6,7 +6,8 @@
 	display: none;
 	position: absolute;
 	background-color: #acacac;
-	margin-top: .7em; 
+	margin-top: .5em; 
+	z-index: 3;
 }
 #menu span {
 	padding: .5em .7em;

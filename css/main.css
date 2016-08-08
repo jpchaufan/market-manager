@@ -1,3 +1,42 @@
+/**  colors and theme css  **/
+	/* base */
+		h1 {
+			color: #2a2a2a; /* standard: 2a2a2a */
+		}
+		body, input {
+			background-color: #fafafa; /* standard: 3f3f3f */
+			color: #3f3f3f; /* standard: 3f3f3f */
+		}
+		header {
+			background-color: #acacac; /* standard: acacac */
+		}
+		nav span {
+			color: blue; /* standard: blue */
+			text-decoration: underline; /* standard: underline */
+		}
+		button {
+			border: 1px solid #9a9a9a; /* standard: 1px solid #9a9a9a */
+			color: #2a2a2a; /* standard: 2a2a2a */
+			background-color: #efefef; /* standard: efefef */
+		}
+	/* inventory mode */
+		#inventory tr {
+			border-bottom: 1px solid #bcbcbc; /* standard: bcbcbc */
+		}
+
+	/* market mode */
+		.purchasePanel {
+			background-color: #f9f9f9; /* standard: f9f9f9f */
+			border: 1px solid #2a2a2a; /* standard: 1px solid #2a2a2a */
+		}
+	/* overlay */
+		.overlay .confirm, .overlay .alert {
+			background-color: #ddd; /* standard: ddd */
+			border: 2px solid #666; /* standard: 666 */
+		}
+
+
+
 /**  base  **/
 html, body {
 	height: 100%;
@@ -5,17 +44,12 @@ html, body {
 }
 * {
 	text-align: center;
-	color: #3f3f3f;
 }
-body, input {
-	background-color: #fafafa;
-}
+
 header {
-	background-color: #acacac;
 	text-align: left;
 }
 h1 {
-	color: #2a2a2a;
 	display: inline-block;
 	font-size: 1.2em;
 	margin-top: .4em;
@@ -28,13 +62,9 @@ nav {
 }
 nav span {
 	padding: .1em 2em;
-	color: blue;
-	text-decoration: underline;
 	cursor: pointer;
 }
 button {
-	border: 1px solid #9a9a9a;
-	background-color: #efefef;
 	margin: .1em;
 }
 #mode {
@@ -51,9 +81,6 @@ button {
 }
 #inventoryList {
 	width: 100%;
-}
-#inventory tr {
-	border-bottom: 1px solid #bcbcbc;
 }
 #inventory th, #inventory td[class*='display_'] {
 	padding: .1em 2em;
@@ -87,7 +114,12 @@ button {
 	max-width: 700px;
 	margin: 2em auto;
 }
-
+#marketPanel button div {
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+}
 #marketPanel .purchaseBtn {
 	padding: .5em;
 	margin: .5em; 
@@ -96,9 +128,7 @@ button {
 	font-weight: bold;
 }
 .purchasePanel {
-	background-color: #f9f9f9;
 	display: none;
-	border: 1px solid #2a2a2a;
 	padding: 1em;
 }
 .purchasePanel .purchase {
@@ -158,11 +188,9 @@ button {
 	background-color: rgba(255,255,255,.6);
 }
 .overlay .confirm, .overlay .alert  {
-	background-color: #ddd;
 	display: inline-block;
 	margin-top: 15%;
 	padding: 1em 2em 2em;
-	border: 2px solid #666;
 	border-radius: 1em;
 	-webkit-border-radius: 1em;
 	-moz-border-radius: 1em;

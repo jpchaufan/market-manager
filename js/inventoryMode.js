@@ -134,11 +134,14 @@ $('#inventoryForm input').on('keydown',function(e){
 
 function defaultInventory(){
 	newItem('carrots', 12, 3);
-	newItem('beets', 15, 3);
+	newItem('broccoli', 15, 3);
 	newItem('garlic', 8, 2.5);
 	newItem('potato basket', 20, 4);
-	newItem('greens - sm bag', 30, 3.5);
-	newItem('greens - lg bag', 18, 6);	
+	newItem('cauliflower', 24, 3);	
+	newItem('celery', 18, 2.5);	
+	newItem('flowers', 5, 2);	
+	newItem('radish', 15, 2);	
+	newItem('green onions', 30, 1.5);	
 }
 if (!localStorage.getItem('data')){
 	defaultInventory();	
