@@ -52,6 +52,7 @@ function updatePurchasePanel(){
 
 function finalizePurchase(){
 	callback = function(){
+		console.log('finalizing purchase');
 		for (var i = 0; i < data.currentPurchase.length; i++) { // update quantities in inventory
 			var item = data.currentPurchase[i].name;
 			var amount = data.currentPurchase[i].quantity;
@@ -98,6 +99,7 @@ function cancelPurchase(){
 	callback = function(){
 		data.currentPurchase = [];
 		updatePurchasePanel();
+		console.log('canceling purchase');
 	}
 	if (data.options.confirmCancelPurchase){
 		cConfirm("Cancel this purchase?", callback);	

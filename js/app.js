@@ -1,3 +1,4 @@
+var callback;
 initializeData();
 function initializeData(){
 	data = {
@@ -106,17 +107,19 @@ function cConfirm(msg, callbackY, callbackN){
 	$('.overlay .alert').hide();
 	$('.overlay .confirm').show();
 	$('.overlay').show();
-	$('#confirmYes').click(function(){
+	$('#confirmYes').on('click', function(){
 		if (callbackY){
 			callbackY();
 		}
+		$('#confirmYes').off('click');
 		$('.overlay .confirm').hide();
 		$('.overlay').hide();
 	});
-	$('#confirmNo').click(function(){
+	$('#confirmNo').on('click', function(){
 		if (callbackN){
 			callbackN();
 		}
+		$('#confirmYes').off('click');
 		$('.overlay .confirm').hide();
 		$('.overlay').hide();
 	});
