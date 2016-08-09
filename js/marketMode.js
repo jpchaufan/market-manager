@@ -10,7 +10,7 @@ function updateMarket(){
 	}
 	for (var i = 0; i < data.inventory.length; i++) {
 		html += '<button class="purchaseBtn" onclick="sellItem(\''+data.inventory[i].id+'\')" id="'+data.inventory[i].id+'">';
-		html += '<div class="name">'+data.inventory[i].name+'</div><div class="quantity">'+data.inventory[i].quantity+'/'+data.inventory[i].initialQuantity+'</div><div class="price">'+dollars(data.inventory[i].price)+'</div></button>';
+		html += '<div class="name">'+data.inventory[i].name+'</div><div class="quantity"><span class="currentQuantity">'+data.inventory[i].quantity+'</span>/<span class="initialQuantity">'+data.inventory[i].initialQuantity+'</span></div><div class="price">'+dollars(data.inventory[i].price)+'</div></button>';
 	}
 	$("#marketPanel").html(html);
 	if (data.options.btnImg){
@@ -49,8 +49,11 @@ function sellItem(itemId){
 			}
 		);
 	}	
-	displayMarket();
 	updatePurchasePanel();
+
+	//lower currentQuantity in real time
+	var $elem = $('#marketPanel button#'+itemId+' span.currentQuantity');
+	$elem.html($elem.html()-1);
 }
 
 

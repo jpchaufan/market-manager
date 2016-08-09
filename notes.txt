@@ -31,6 +31,12 @@ to add:
 
   saving options ✓
 
+  menu links selected ✓
+
+  update market btn quantities in real time ✓
+
+  increase initialQuantity when they buy more than the amount ✓
+
   multiple active purchases, with purchase id's
 
   add jquery ui for draggable windows

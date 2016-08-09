@@ -12,13 +12,17 @@
 		}
 		nav span {
 			color: blue; /* standard: blue */
-			text-decoration: underline; /* standard: underline */
+			text-decoration: none; /* standard: underline */
 		}
 		button {
 			border: 1px solid #9a9a9a; /* standard: 1px solid #9a9a9a */
 			color: #2a2a2a; /* standard: 2a2a2a */
 			background-color: #efefef; /* standard: efefef */
 		}
+	.selected {
+		font-weight: bolder;
+		text-decoration: underline;
+	}
 	/* inventory mode */
 		#inventory tr {
 			border-bottom: 1px solid #bcbcbc; /* standard: bcbcbc */

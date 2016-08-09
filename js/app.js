@@ -49,6 +49,15 @@ function setMode(mode){
 	} else if (mode = 'options'){
 		displayOptions();
 	}
+	adjustSelectedLink(mode);
+}
+
+function adjustSelectedLink(mode){
+	$('#inventoryMode').removeClass('selected');
+	$('#marketMode').removeClass('selected');
+	$('#reportMode').removeClass('selected');
+	$('#optionsMode').removeClass('selected');
+	$('#'+mode+'Mode').addClass('selected');
 }
 
 function hideAll() {

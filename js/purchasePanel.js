@@ -52,7 +52,6 @@ function updatePurchasePanel(){
 
 function finalizePurchase(){
 	callback = function(){
-		console.log('finalizing purchase');
 		for (var i = 0; i < data.currentPurchase.length; i++) { // update quantities in inventory
 			var item = data.currentPurchase[i].name;
 			var amount = data.currentPurchase[i].quantity;
@@ -78,6 +77,11 @@ function finalizePurchase(){
 				for (var k = 0; k < data.inventory.length; k++) {
 					if ( data.currentPurchase[i].itemId == data.inventory[k].id ){
 						data.inventory[k].profit += cashFromItem;
+						// adjust initialQuantity if quantity goes into the negatives
+						while (data.inventory[k].quantity < 0){
+							data.inventory[k].quantity += 1;
+							data.inventory[k].initialQuantity += 1;
+						}
 					}
 				};
 			};
@@ -99,7 +103,7 @@ function cancelPurchase(){
 	callback = function(){
 		data.currentPurchase = [];
 		updatePurchasePanel();
-		console.log('canceling purchase');
+		updateMarket();
 	}
 	if (data.options.confirmCancelPurchase){
 		cConfirm("Cancel this purchase?", callback);	
